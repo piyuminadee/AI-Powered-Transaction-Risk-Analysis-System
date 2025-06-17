@@ -94,7 +94,7 @@ async def process_transaction(
     except HTTPException as e:
         return {"error": str(e)}
     
-    # Print admin alert if high risk 
+   
     if risk_data.risk_score >= 0.7:
         alert = {
             "alert_type": "high_risk_transaction",
@@ -104,7 +104,7 @@ async def process_transaction(
             "transaction_details": transaction.dict(),
             "llm_analysis": risk_data.reasoning
         }
-        print(f"🔔 ADMIN ALERT: {json.dumps(alert, indent=2)}")
+        print(f" ADMIN ALERT: {json.dumps(alert, indent=2)}")
     
     return {
         "status": "processed",
